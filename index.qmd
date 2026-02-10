@@ -1,0 +1,81 @@
+---
+title: "My Data Visualization Portfolio"
+format: 
+  html:
+    output-file: index.html
+execute:
+  echo: true
+  eval: true
+---
+
+# Welcome to My Portfolio! 📊
+
+Hello! My nickname is Ramisa. This is my Quarto data visualization portfolio showcasing my Python and matplotlib skills.
+
+## About This Portfolio
+
+This portfolio demonstrates how Quarto can seamlessly integrate Python code and visualizations into professional documents. Each chart below is created using matplotlib and embedded directly into this document.
+
+## What is Matplotlib?
+
+**Matplotlib** is a widely used Python library for creating static, animated, and interactive visualizations. Originally created by John D. Hunter and now maintained by a large community, it provides a flexible, publication-quality plotting system that works well in scripts, Jupyter notebooks, and web applications.
+
+Matplotlib is useful because it:
+
+- **Integrates with the Python ecosystem** — It works seamlessly with NumPy, Pandas, and SciPy, so you can plot data from your analysis pipeline with minimal extra code.
+- **Offers fine-grained control** — You can customize almost every aspect of a plot (colors, labels, axes, legends, annotations) to match your needs or publication standards.
+- **Supports many chart types** — Line plots, bar charts, histograms, scatter plots, heatmaps, and more are all available from a single library.
+- **Produces publication-ready figures** — Output can be saved in common formats (PNG, PDF, SVG) at any resolution, making it suitable for reports, papers, and presentations.
+
+The charts in this portfolio use matplotlib’s **pyplot** interface (`matplotlib.pyplot`), which provides a simple, MATLAB-like way to build figures step by step.
+
+## Simple Line Chart
+
+Let's create a simple line chart showing some sample data:
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create the plot
+plt.figure(figsize=(7, 4.75))
+plt.plot(x, y, 'b-', linewidth=2, label='sin(x)')
+plt.xlabel('X values')
+plt.ylabel('Y values')
+plt.title('My First Matplotlib Chart')
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.show()
+```
+
+## Bar Chart Example
+
+Here's a bar chart showing some sample data:
+
+```{python}
+# Sample data for bar chart
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [23, 45, 56, 78, 32]
+
+plt.figure(figsize=(7, 4.75))
+bars = plt.bar(categories, values, color=['red', 'green', 'blue', 'orange', 'purple'])
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Sample Bar Chart')
+
+# Add value labels on bars
+for bar, value in zip(bars, values):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1, 
+             str(value), ha='center', va='bottom')
+
+plt.show()
+```
+
+
+## Conclusion
+
+This demonstrates how Quarto can seamlessly integrate Python code and visualizations into professional documents that can be hosted publicly on GitHub Pages!
